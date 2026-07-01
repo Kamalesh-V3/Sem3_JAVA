@@ -1,0 +1,213 @@
+Exercise.No:3
+
+//Parent class
+
+package Sem3;
+import java.util.Scanner;
+public class Vehicle {
+
+        public String brand;
+        public String model;
+        public int year;
+        public int price;
+
+        public Vehicle() {
+        }
+        public void display() {
+                Scanner sc=new Scanner(System.in);
+                System.out.println("Welcome to Vehicle world");
+                sc.close();
+        }
+}
+
+//Child Class 1
+
+package Sem3;
+
+import java.util.Scanner;
+
+public class Geared extends Vehicle {
+
+        public int gears;
+        public String fuel;
+        public float mileage;
+        public int cc;
+        public Geared() {
+                Scanner sc=new Scanner(System.in);
+                System.out.println("It is Geared Vehicle");
+                System.out.println("Enter Brand  : ");
+                brand=sc.nextLine();
+                System.out.println("Enter model  : ");
+                model=sc.nextLine();
+                System.out.println("Enter price  : ");
+                price=sc.nextInt();
+                System.out.println("Enter gears  : ");
+                gears=sc.nextInt();
+                System.out.println("Enter fuel  : ");
+                fuel=sc.next();
+                System.out.println("Enter mileage  : ");
+                mileage=sc.nextFloat();
+                System.out.println("Enter the cc : ");
+                cc=sc.nextInt();
+                sc.close();
+        }
+        public void display() {
+                        System.out.println("Brand  : "+brand);
+                        System.out.println("Model  : "+model);
+                        System.out.println("Price  : "+price);
+                        System.out.println("Gears  : "+gears);
+                        System.out.println("Fuel   : "+fuel);
+                        System.out.println("Mileage: "+mileage);
+                        condiCheck();
+        }
+        public void condiCheck() {
+                if(cc <40 && mileage>50) {
+                        System.out.println("Condition is Good");
+                }
+                else {
+                        System.out.println("Condition is Bad");
+                }
+        }
+}
+
+//Child class 2
+
+package Sem3;
+
+import java.util.Scanner;
+
+public class NonGeared extends Vehicle {
+
+        public String fuel;
+        public float mileage;
+    public int cc;
+        public NonGeared() {
+                Scanner sc=new Scanner(System.in);
+                System.out.println("It is Non-Gearded Vehicle");
+                System.out.println("Enter Brand  : ");
+                brand=sc.next();
+                System.out.println("Enter model  : ");
+                model=sc.next();
+                System.out.println("Enter price  : ");
+                price=sc.nextInt();
+                System.out.println("Enter fuel  : ");
+                fuel=sc.next();
+                System.out.println("Enter mileage  : ");
+                mileage=sc.nextFloat();
+                System.out.println("Enter the cc : ");
+                cc=sc.nextInt();
+                sc.close();
+        }
+        public void display() {
+                System.out.println("Brand  : "+brand);
+                System.out.println("Model  : "+model);
+                System.out.println("Price  : "+price);
+                System.out.println("Fuel   : "+fuel);
+                System.out.println("Mileage: "+mileage);
+                condiCheck();
+                }
+        public void condiCheck() {
+                if(cc <40 && mileage>50) {
+                        System.out.println("Condition is Good");
+                }
+                else {
+                        System.out.println("Condition is Bad");
+                }
+        }
+
+}
+
+//Main class
+
+package Sem3;
+import java.util.Scanner;
+public class VehiclePgm {
+
+        public static void main(String[] args) {
+                Scanner sc=new Scanner(System.in);
+                System.out.println("****SHOP****");
+                System.out.println("1. Geared \n2. NonGeared");
+                System.out.print("Enter choice:");
+                Vehicle v;
+                int ch=0;
+                        ch=sc.nextInt();
+                        if (ch==1) {
+                                Geared gb=new Geared();
+                                v=gb;
+                        v.display();
+                        }
+                        else if (ch==2) {
+                                NonGeared ngb=new NonGeared();
+                        v=ngb;
+                        v.display();
+                        }
+                   else {
+                           System.out.println("Invalid option");
+                           }
+                sc.close();
+        }
+}
+
+Z:\>net use
+New connections will be remembered.
+
+
+Status       Local     Remote                    Network
+
+-------------------------------------------------------------------------------
+OK           Z:        \\172.16.16.220\cse-student\ug\24bcs\b\20664
+                                                Microsoft Windows Network
+The command completed successfully.
+
+//Output
+
+****SHOP****
+1. Geared
+2. NonGeared
+Enter choice:1
+It is Geared Vehicle
+Enter Brand  :
+Yamaha
+Enter model  :
+R15
+Enter price  :
+175000
+Enter gears  :
+7
+Enter fuel  :
+petrol
+Enter mileage  :
+85
+Enter the cc :
+40
+Brand  : Yamaha
+Model  : R15
+Price  : 175000
+Gears  : 7
+Fuel   : petrol
+Mileage: 85.0
+Condition is Bad
+
+****SHOP****
+1. Geared
+2. NonGeared
+Enter choice:2
+It is Non-Gearded Vehicle
+Enter Brand  :
+TVS
+Enter model  :
+Jupiter
+Enter price  :
+100000
+Enter fuel  :
+petrol
+Enter mileage  :
+86
+Enter the cc :
+30
+Brand  : TVS
+Model  : Jupiter
+Price  : 100000
+Fuel   : petrol
+Mileage: 86.0
+Condition is Good
