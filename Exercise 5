@@ -1,0 +1,192 @@
+Exercise:5
+
+//abstract class "Shape"
+
+public abstract class Shape {
+
+        public String skind;
+
+        public Shape(String skind) {
+                this.skind=skind;
+        }
+        public void display() {
+                System.out.println("Shape     : "+skind);
+                System.out.println("Area      : "+areaCal());
+                System.out.println("Perimeter : "+perimCal());
+        }
+        public abstract float areaCal();
+        public abstract float perimCal();
+}
+
+//Derived class "Rectangle"
+
+public class Rectangle extends Shape {
+        public float l,w;
+        public Rectangle(String skind,float l,float w) {
+                super(skind);
+                this.l=l;
+                this.w=w;
+        }
+        @Override
+        public float areaCal() {
+                return (l*w);
+        }
+        @Override
+        public float perimCal() {
+                return (l+w)*2;
+        }
+}
+
+//Derived class "Circle"
+
+package Sem3.Exer5;
+
+public class Circle extends Shape {
+        public float r;
+        public Circle(String skind,float r) {
+                super(skind);
+                this.r=r;
+        }
+
+        @Override
+        public float areaCal() {
+                float res = 3.14f*r*r;
+                return res;
+        }
+
+        @Override
+        public float perimCal() {
+                float res= 3.14f*2*r;
+                return res;
+        }
+
+}
+
+//Derived class "Triangle"
+
+package Sem3.Exer5;
+
+public class Triangle extends Shape {
+        public float b,h,s1,s2,s3;
+
+        public Triangle(String skind,float b,float h,float s1, float s2, float s3) {
+                super(skind);
+                this.b=b;
+                this.h=h;
+                this.s1=s1;
+                this.s2=s2;
+                this.s3=s3;
+        }
+
+        @Override
+        public float areaCal() {
+                float res=b*h/2;
+                return res;
+        }
+
+        @Override
+        public float perimCal() {
+                float res=s1+s2+s3;
+                return res;
+        }
+
+}
+
+//Main class
+
+package Sem3.Exer5;
+import java.util.Scanner;
+public class ShapePgm {
+
+        public static void main(String[] args) {
+                Shape s;
+                int ch=0;
+                Scanner sc=new Scanner(System.in);
+                System.out.println("~~~MENU~~~~\n1.Rectangle\n2.Circle\n3.Triangle\n
+                                    4.Exit");
+                while(ch!=4) {
+                        System.out.println("Enter choice: ");
+                        ch=sc.nextInt();
+                        if(ch==1) {
+                                System.out.println("Enter length:");
+                                float l=sc.nextFloat();
+                                System.out.println("Enter width:");
+                                float w=sc.nextFloat();
+                                Rectangle r=new Rectangle("Rectangle",l,w);
+                                s=r;
+                                s.display();
+                        }
+                        else if(ch==2) {
+                                System.out.println("Enter radius:");
+                                float r=sc.nextFloat();
+                                Circle c=new Circle("Circle",r);
+                                s=c;
+                                s.display();
+                        }
+                        else if(ch==3) {
+                                System.out.println("Enter base:");
+                                float b=sc.nextFloat();
+                                System.out.println("Enter height:");
+                                float h=sc.nextFloat();
+                                System.out.println("Enter 3 sides:");
+                                float x=sc.nextFloat();
+                                float y=sc.nextFloat();
+                                float z=sc.nextFloat();
+                                Triangle t=new Triangle("Triangle",b,h,x,y,z);
+                                s=t;
+                                s.display();
+                        }
+                }
+                sc.close();
+        }
+}
+
+Z:\>net use
+New connections will be remembered.
+
+
+Status       Local     Remote                    Network
+
+-------------------------------------------------------------------------------
+OK           Z:        \\172.16.16.220\cse-student\ug\24bcs\b\20664
+                                                Microsoft Windows Network
+The command completed successfully.
+
+//Output
+
+~~MENU~~~~
+1.Rectangle
+2.Circle
+3.Triangle
+4.Exit
+Enter choice:
+1
+Enter length:
+7
+Enter width:
+4
+Shape     : Rectangle
+Area      : 28.0
+Perimeter : 22.0
+Enter choice:
+2
+Enter radius:
+2.5
+Shape     : Circle
+Area      : 19.625
+Perimeter : 15.700001
+Enter choice:
+3
+Enter base:
+6
+Enter height:
+12
+Enter 3 sides:
+2
+4
+7
+Shape     : Triangle
+Area      : 36.0
+Perimeter : 13.0
+Enter choice:
+4
