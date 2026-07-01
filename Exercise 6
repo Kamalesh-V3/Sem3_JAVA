@@ -1,0 +1,63 @@
+[24bcs105@mepcolinux ex6]$cat exer6.prn
+//Interface
+
+package test1;
+
+public interface IterIntf {
+        void arrIter(int[] x);
+}
+
+
+//MainCode
+
+package test1;
+
+import java.util.Scanner;
+public class IterMain {
+        public static void main(String[] args) {
+                int[] arr;
+                int num;
+                Scanner sc=new Scanner(System.in);
+                System.out.print("Enter no.of Elements: ");
+                num=sc.nextInt();
+                arr=new int[num];
+                System.out.println("Enter elements:");
+                for(int i=0;i<num;i++) {
+                        arr[i]=sc.nextInt();
+                }
+                System.out.println("Iterated Output: ");
+                IterIntf obji = (int[] ar)->{
+                            int pro=1;
+                        for(int b :ar) {
+                                System.out.println(b);
+                                pro=pro*b;
+                                }System.out.println("Product= " + pro);
+                };
+                obji.arrIter(arr);
+                sc.close();
+        }
+}
+
+Z:\Sem3\Java>net use
+New connections will be remembered.
+
+
+Status       Local     Remote                    Network
+
+-------------------------------------------------------------------------------
+OK           Z:        \\172.16.16.220\cse-student\ug\24bcs\b\20664
+                                                Microsoft Windows Network
+The command completed successfully.
+
+//Output
+
+Enter no.of Elements: 5
+Enter elements:
+1 2 3 4 5
+Iterated Output:
+1
+2
+3
+4
+5
+Product= 120
