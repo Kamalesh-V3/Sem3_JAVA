@@ -1,0 +1,131 @@
+Exercise.No:1
+
+//Code
+
+import java.util.Scanner;
+
+class Employee {
+   String empName;
+   int empId;
+   String empAddr;
+   int empMobno;
+   String empEmail;
+   float empBasicPay;
+
+   public void getEmployee() {
+   Scanner in = new Scanner(System.in);
+   System.out.println("Enter Employee Name: ");
+   empName = in.nextLine();
+   System.out.println("Enter Employee Id: ");
+   empId = in.nextInt();
+   System.out.println("Enter Employee Address: ");
+   empAddr = in.next();
+   System.out.println("Enter Mobile Number :");
+   empMobno = in.nextInt();
+   System.out.println("Enter Email :");
+   empEmail = in.next();
+   System.out.println("Enter Basic pay:");
+   empBasicPay = in.nextFloat();
+   }
+
+   public void computeSalary() {
+      float dA = 0.97f * empBasicPay;
+      float hrA = 0.10f * empBasicPay;
+      float pF = 0.12f * empBasicPay;
+      float clubFund = 0.001f * empBasicPay;
+      double grossSalary = empBasicPay + dA + hrA;
+      double netSalary = grossSalary - pF - clubFund;
+      System.out.println("Dearness Allowance:" + dA);
+      System.out.println("HouseRent Allowance:" + hrA);
+      System.out.println("Provident Fund :" + pF);
+      System.out.println("Club Funds :" + clubFund);
+      System.out.println("Gross Salary :" + grossSalary);
+      System.out.println("Net salary :" + netSalary);
+   }
+
+   public void putEmployee() {
+      System.out.println("----------Payslip----------");
+      System.out.println("Employee Name :" + empName);
+      System.out.println("Employee ID :" + empId);
+      System.out.println("Employee Address:" + empAddr);
+      System.out.println("Employee Mobile:" + empMobno);
+      System.out.println("Employee Email:" + empEmail);
+      System.out.println("Basic Pay:" + empBasicPay);
+   }
+}
+
+public class Employeepgm {
+   public static void main(String[] args) {
+      Employee e = new Employee();
+      e.getEmployee();
+      e.putEmployee();
+      e.computeSalary();
+   }
+}
+
+Z:\>net use
+New connections will be remembered.
+
+
+Status       Local     Remote                    Network
+
+-------------------------------------------------------------------------------
+OK           Z:        \\172.16.16.220\cse-student\ug\24bcs\b\20664
+                                                Microsoft Windows Network
+The command completed successfully.
+
+//Output
+
+Z:\>java Employeepgm
+Enter Employee Name:
+Raja
+Enter Employee Id:
+101
+Enter Employee Address:
+Madurai
+Enter Mobile Number :
+90043002
+Enter Email :
+raja@gmail.com
+Enter Basic pay:
+100000
+----------Payslip----------
+Employee Name :Raja
+Employee ID :101
+Employee Address:Madurai
+Employee Mobile:90043002
+Employee Email:raja@gmail.com
+Basic Pay:100000.0
+Dearness Allowance:97000.0
+HouseRent Allowance:10000.0
+Provident Fund :12000.0
+Club Funds :100.00001
+Gross Salary :207000.0
+Net salary :194899.99
+
+Z:\>java Employeepgm
+Enter Employee Name:
+John
+Enter Employee Id:
+102
+Enter Employee Address:
+Sivakasi
+Enter Mobile Number :
+80075008
+Enter Email :
+john@gmail.com
+Enter Basic pay:
+150000
+----------Payslip----------
+Employee Name :John
+Employee ID :102
+Employee Address:Sivakasi
+Employee Mobile:80075008
+Employee Email:john@gmail.com
+Basic Pay:150000.0
+Dearness Allowance:145500.0
+HouseRent Allowance:15000.0
+Provident Fund :18000.0
+Club Funds :150.0
+Gross Salary :310500.0
+Net salary :292350.0
