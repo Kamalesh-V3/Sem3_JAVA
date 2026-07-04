@@ -1,0 +1,56 @@
+Generic programming
+
+//Code
+
+package Jav;
+
+import java.util.*;
+
+class CalculateSum{
+	public static double calculate(List<? extends Number>l) {
+		double sum=0.0;
+		for(Number i:l) {
+			sum+=i.doubleValue();
+		}
+		return sum;
+	}
+}
+public class CalculateSumPgm {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		List<Integer> l=new ArrayList<Integer>();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the 'n' Value : ");
+		int n=sc.nextInt();
+		System.out.println("Enter the elements : ");
+		for( int i=0; i<n; i++) {
+			int ele=sc.nextInt();
+			l.add(ele);
+		}
+		double sum=CalculateSum.calculate(l);
+		System.out.println("Sum : "+sum);
+		sc.close();
+	}
+
+}
+
+PS C:\Users\JAVA-B-B1> net use
+New connections will be remembered.
+
+
+Status       Local     Remote                    Network
+
+-------------------------------------------------------------------------------
+OK           Z:        \\172.16.16.220\cse-student\ug\24bcs\b\20664
+                                                Microsoft Windows Network
+The command completed successfully.
+
+//Output
+
+Enter the 'n' Value : 
+5
+Enter the elements : 
+1 2 3 4 5
+Sum : 15.0
+
